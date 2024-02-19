@@ -13,11 +13,9 @@ from aiogram.types import Message
 from aiogram.types import InlineKeyboardButton
 from aiogram.types import InlineKeyboardMarkup
 
+from config.settings import BOT_TOKEN
 
-TOKEN = "6324232749:AAHQZE62IuPsV97ugB4lXitRoaXbyLxBw_A"
-
-
-# Initialize Dispatcher
+TOKEN = BOT_TOKEN
 dp = Dispatcher()
 
 
@@ -35,7 +33,7 @@ async def command_start_handler(message: Message) -> None:
 
 @dp.callback_query(F.data.startswith('start'))
 async def first(callback_query: types.CallbackQuery):
-    await callback_query.message.answer('Хорошо, приступим ко второму вопросу.') # noqa
+    await callback_query.message.answer('Callback Data is working')
 
 
 @dp.message()
